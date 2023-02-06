@@ -57,10 +57,6 @@ function restartGame() {
     updateScore();
 }
 
-resetBtn.addEventListener("click", function(){
-    restartGame();
-});
-
 function clickButton() {
     const playerSelection = this.textContent;
     const computerSelection = getComputerChoice();
@@ -81,6 +77,9 @@ function game() {
     scoreboard.textContent = `${playerWinCount} : ${computerWinCount}`;
     buttons.forEach(button => button.addEventListener("click", clickButton));
     resetBtn.removeEventListener("click", clickButton);
+    resetBtn.addEventListener("click", function(){
+        restartGame();
+    });
 }
 
 game();
